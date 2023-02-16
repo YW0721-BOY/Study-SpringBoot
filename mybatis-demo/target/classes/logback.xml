@@ -5,7 +5,7 @@
             <pattern>[%level] %bule(%d{HH:mm:ss.SSS}) %cyan([%thread]) %boldGreen(%logger{15}) - %msg %n</pattern>
         </encoder>
     </appender>
-    <logger name="com.hm" level="DEBUG" additivity="false">
+    <logger name="com.HM" level="DEBUG" additivity="false">
         <appender-ref ref="Console"/>
     </logger>
     </configuration>

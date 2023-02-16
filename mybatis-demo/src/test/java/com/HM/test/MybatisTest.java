@@ -39,4 +39,50 @@ public class MybatisTest {
     System.out.println(brand.toString());
     sqlSession.close();
   }
+
+
+  //修改
+  @Test
+  public void testUpdate() throws IOException {
+    int status=1;
+    String companyName="锤子手机";
+    String brandName="锤子";
+    int ordered =300;
+    String description ="超级无敌的手机";
+    int id=3;
+
+    Brand brand=new Brand(id,brandName,companyName,ordered,description,status);
+
+    String resource = "mybatis-config.xml";
+    InputStream inputStream= Resources.getResourceAsStream(resource);
+    SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+
+    SqlSession sqlSession = sqlSessionFactory.openSession();
+    BrandMapper mapper = sqlSession.getMapper(BrandMapper.class);
+    int update = mapper.update(brand);
+    sqlSession.commit();
+
+    System.out.println(update);
+    sqlSession.close();
+  }
+
+  //删除
+  @Test
+  public void testDeleteById() throws IOException {
+
+    int id=3;
+
+    Brand brand=new Brand();
+    brand.setId(id);
+
+    String resource = "mybatis-config.xml";
+    InputStream inputStream= Resources.getResourceAsStream(resource);
+    SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+
+    SqlSession sqlSession = sqlSessionFactory.openSession();
+    BrandMapper mapper = sqlSession.getMapper(BrandMapper.class);
+    mapper.deleteById(brand);
+    sqlSession.commit();
+    sqlSession.close();
+  }
 }
