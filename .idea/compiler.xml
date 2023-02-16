@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="mybatis-demo" />
         <module name="springboot_01_01_quickstart" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
+      <module name="mybatis-demo" target="8" />
       <module name="springboot_01_01_quickstart" target="1.8" />
     </bytecodeTargetLevel>
   </component>
